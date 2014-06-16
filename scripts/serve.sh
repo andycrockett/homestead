@@ -2,8 +2,8 @@
 
 block="server {
     listen 80;
-    server_name $1;
-    root $2;
+    server_name $2;
+    root $3;
 
     index index.html index.htm index.php;
 
