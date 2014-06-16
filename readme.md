@@ -1,4 +1,4 @@
-# Laravel Homestead + Vagrant-Hostmanager
+# Laravel Homestead + Hostmanager
 
 The official Laravel local development environment.
 
