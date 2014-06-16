@@ -7,6 +7,15 @@ class Homestead
     # Configure A Private Network IP
     config.vm.network :private_network, ip: settings["ip"] ||= "192.168.10.10"
 
+    # Configure hostmanager
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true # requires password during setup if true
+    config.hostmanager.ignore_private_ip = false # visit your sites without specifying the port (:8000)
+    config.hostmanager.include_offline = true
+    
+    # Define aliases variable so we can pass it to hostmanager after our nginx sites are set up
+    aliases = ""
+
     # Configure A Few VirtualBox Settings
     config.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", settings["memory"] ||= "2048"]
@@ -44,9 +53,7 @@ class Homestead
     settings["folders"].each do |folder|
       config.vm.synced_folder folder["map"], folder["to"], type: folder["type"] ||= nil
     end
-    
-    # Define aliases variable to pass to hostmanager
-    aliases = ""
+
 
     # Install All The Configured Nginx Sites
     settings["sites"].each do |site|
@@ -54,7 +61,7 @@ class Homestead
           s.inline = "bash /vagrant/scripts/serve.sh $1 \"$2\" $3"
           s.args = [site["name"], site['map'], site["to"]]
       end
-      # record all site mappings for hostmanager
+      # record site mappings for hostmanager
       aliases << " " + site["map"]
     end
 
@@ -68,14 +75,8 @@ class Homestead
       end
     end
 
-    # Configure hostmanager
-    config.hostmanager do |hm|
-      hm.enabled = true
-      hm.manage_host = true # requires password during setup if true
-      hm.ignore_private_ip = false # visit your sites without specifying the port (:8000)
-      hm.include_offline = true
-      hm.hostmanager.aliases = aliases
-    end
+    # pass aliases to hostmanagers
+    config.hostmanager.aliases = aliases
 
     # ensure hostmanager is run
     config.vm.provision :hostmanager   
