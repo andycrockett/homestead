@@ -44,6 +44,9 @@ class Homestead
     settings["folders"].each do |folder|
       config.vm.synced_folder folder["map"], folder["to"], type: folder["type"] ||= nil
     end
+    
+    # Define aliases variable to pass to hostmanager
+    aliases = ""
 
     # Install All The Configured Nginx Sites
     settings["sites"].each do |site|
