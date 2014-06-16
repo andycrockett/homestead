@@ -26,7 +26,6 @@ sites:
   - name: homestead-app
     map: homestead.app alias.homestead.app other-alias.homestead.app
     to: /path/to/homesteadapp/public
-  
 ```
 
 `map` is used as the server name in the nginx site config and is also passed to hostmanager as the aliases to homestead's IP on your host machine.
