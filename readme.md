@@ -11,6 +11,7 @@ Official Homestead documentation [is located here](http://laravel.com/docs/homes
 - Added an array key `name` to sites in `Homestead.yaml`
 - Edited `scripts/serve.sh` to accept the name parameter
 - Site's `map` key now supports aliases instead of just a single domain
+- `serve` command now accepts a third parameter. Usage: `serve site-name "domain(s)" path`
 
 ## Usage
 
