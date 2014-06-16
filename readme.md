@@ -1,14 +1,15 @@
 # Laravel Homestead + Hostmanager
 
-The official Laravel local development environment.
+The official Laravel local development environment slightly edited to allow vagrant-hostmanager to use site maps as aliases in `/etc/hosts`.
 
-Official documentation [is located here](http://laravel.com/docs/homestead?version=4.2).
+Official Homestead documentation [is located here](http://laravel.com/docs/homestead?version=4.2).
 
 ## Key differences
 
 - Gave the machine a name of 'homestead' instead of 'default'
-- Added hostmanager configuration to scripts/homestead.rb
-- Added an array key `name` to sites in Homestead.yaml
+- Added hostmanager configuration to `scripts/homestead.rb`
+- Added an array key `name` to sites in `Homestead.yaml`
+- Edited `scripts/serve.sh` to accept the name parameter
 - Site's `map` key now supports aliases instead of just a single domain
 
 ## Usage
