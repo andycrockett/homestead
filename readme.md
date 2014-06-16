@@ -8,8 +8,8 @@ Official documentation [is located here](http://laravel.com/docs/homestead?versi
 
 - Gave the machine a name of 'homestead' instead of 'default'
 - Added hostmanager configuration to scripts/homestead.rb
-- Added an array key 'name' to sites in Homestead.yaml
-- Sites map key now supports aliases instead of just a single domain
+- Added an array key `name` to sites in Homestead.yaml
+- Site's `map` key now supports aliases instead of just a single domain
 
 ## Usage
 
