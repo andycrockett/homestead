@@ -48,9 +48,11 @@ class Homestead
     # Install All The Configured Nginx Sites
     settings["sites"].each do |site|
       config.vm.provision "shell" do |s|
-          s.inline = "bash /vagrant/scripts/serve.sh $1 $2"
-          s.args = [site["map"], site["to"]]
+          s.inline = "bash /vagrant/scripts/serve.sh $1 \"$2\" $3"
+          s.args = [site["name"], site['map'], site["to"]]
       end
+      # record all site mappings for hostmanager
+      aliases << " " + site["map"]
     end
 
     # Configure All Of The Server Environment Variables
@@ -62,5 +64,23 @@ class Homestead
         end
       end
     end
+
+    # Configure hostmanager
+    config.hostmanager do |hm|
+      hm.enabled = true
+      hm.manage_host = true # requires password during setup if true
+      hm.ignore_private_ip = false # visit your sites without specifying the port (:8000)
+      hm.include_offline = true
+      hm.hostmanager.aliases = aliases
+    end
+
+    # ensure hostmanager is run
+    config.vm.provision :hostmanager   
+
   end
+end
+
+# make sure hostmanager is installed
+unless Vagrant.has_plugin?("vagrant-hostmanager")
+  raise 'Missing required plugin "vagrant-hostmanager". To install, run "vagrant plugin install vagrant-hostmanager" and then try again.'
 end
