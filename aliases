@@ -4,15 +4,25 @@ alias ...="cd ../.."
 alias h='cd ~'
 alias c='clear'
 
+alias tol="cd /var/www/tol"
+
+# Generator Stuff
+alias g:m="php artisan generate:model"
+alias g:c="php artisan generate:controller"
+alias g:v="php artisan generate:view"
+alias g:s="php artisan generate:seed"
+alias g:mig="php artisan generate:migration"
+alias g:r="php artisan generate:resource"
+
 function serve() {
-	if [[ "$1" && "$2" ]]
+	if [[ "$1" && "$2" && "$3" ]]
 	then
 		sudo dos2unix /vagrant/scripts/serve.sh
-		sudo bash /vagrant/scripts/serve.sh "$1" "$2"
+		sudo bash /vagrant/scripts/serve.sh "$1" "$2" "$3"
 	else
 		echo "Error: missing required parameters."
 		echo "Usage: "
-		echo "  serve domain path"
+		echo "  serve site-name \"domain(s)\" path"
 	fi
 }
 

@@ -1,21 +1,35 @@
 ---
 ip: "192.168.10.10"
-memory: 2048
+memory: 512
 cpus: 1
 
-authorize: /Users/me/.ssh/id_rsa.pub
+authorize: /Users/Andy/.ssh/id_rsa.pub
 
 keys:
-    - /Users/me/.ssh/id_rsa
+    - /Users/Andy/.ssh/id_rsa
 
 folders:
-    - map: /Users/me/Code
-      to: /home/vagrant/Code
+    - map: /srv/www/tol
+      to: /var/www/tol
+
+    - map: /srv/www/andycrockett
+      to: /var/www/andycrockett
+
+    - map: /srv/www/hilco
+      to: /var/www/hilco
 
 sites:
-    - name: homestead
-      map: homestead.app
-      to: /home/vagrant/Code/Laravel/public
+    - name: tol
+      map: tol.dev login.tol.dev admin.tol.dev account.tol.dev lead.tol.dev api.tol.dev app.tol.dev demo.tol.dev
+      to: /var/www/tol/public
+
+    - name: andycrockett
+      map: andy.dev
+      to: /var/www/andycrockett/public
+    
+    - name: hilco
+      map: hilco.dev hilsport.dev
+      to: /var/www/hilco/public
 
 variables:
     - key: APP_ENV
