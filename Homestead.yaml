@@ -12,6 +12,9 @@ folders:
     - map: /srv/www/tol
       to: /var/www/tol
 
+    - map: /srv/www/beanstalk_console
+      to: /var/www/beanstalk
+
     - map: /srv/www/andycrockett
       to: /var/www/andycrockett
 
@@ -19,9 +22,13 @@ folders:
       to: /var/www/hilco
 
 sites:
-    - name: tol
+    - name: aatol
       map: tol.dev login.tol.dev admin.tol.dev account.tol.dev lead.tol.dev api.tol.dev app.tol.dev demo.tol.dev
       to: /var/www/tol/public
+
+    - name: beanstalkc
+      map: beanstalkd
+      to: /var/www/beanstalk/public
 
     - name: andycrockett
       map: andy.dev

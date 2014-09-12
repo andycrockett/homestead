@@ -15,8 +15,9 @@ class Homestead
 
       # Configure A Private Network IP
       node.vm.network :private_network, ip: settings["ip"] ||= "192.168.10.10"
+      #node.vm.network :public_network, ip: settings["ip"] ||= "192.168.1.116"
 
-      # Define aliases variable to pass to hostmanager later
+      # Define aliases to pass to hostmanager
       aliases = ""
 
       # Configure A Few VirtualBox Settings
@@ -78,7 +79,7 @@ class Homestead
         end
       end
 
-      # pass aliases to hostmanagers
+      # pass aliases to hostmanager
       node.hostmanager.aliases = aliases
       
       # ensure hostmanager is run
