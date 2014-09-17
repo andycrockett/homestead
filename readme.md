@@ -1,17 +1,17 @@
 # Laravel Homestead + Hostmanager
 
-The official Laravel local development environment slightly edited to allow vagrant-hostmanager to use site maps as aliases in `/etc/hosts`.
+This is slightly modified version of the official Laravel vagrant box. It allows for simple, on-the-fly hostname management by taking the aliases defined in `Homestead.yaml` and applying them to your local hosts file. No longer do you have to manually edit your hosts file, just change the aliases in `Homestead.yaml` and run `vagrant reload --provision`, that's it!
 
 Official Homestead documentation [is located here](http://laravel.com/docs/homestead?version=4.2).
 
-## Key differences
+## Changes from official version
 
 - Gave the machine a name of 'homestead' instead of 'default'
 - Added hostmanager configuration to `scripts/homestead.rb`
 - Added an array key `name` to sites in `Homestead.yaml`
 - Edited `scripts/serve.sh` to accept the name parameter
-- Site's `map` key now supports aliases instead of just a single domain
-- `serve` command now accepts a third parameter. Usage: `serve site-name "domain(s)" path`
+- Site's `map` key now supports multiple aliases instead of just one
+- `serve` command now accepts a third parameter. Usage: `serve [site-name] ["space delimited alias list"] [path/to/web/root]`
 
 ## Usage
 
