@@ -9,34 +9,20 @@ keys:
     - /Users/Andy/.ssh/id_rsa
 
 folders:
-    - map: /srv/www/tol
-      to: /var/www/tol
+    - map: /srv/www/app1
+      to: /var/www/app1
 
-    - map: /srv/www/beanstalk_console
-      to: /var/www/beanstalk
-
-    - map: /srv/www/andycrockett
-      to: /var/www/andycrockett
-
-    - map: /srv/www/hilco
-      to: /var/www/hilco
+    - map: /srv/www/app2
+      to: /var/www/app2
 
 sites:
-    - name: aatol
-      map: tol.dev login.tol.dev admin.tol.dev account.tol.dev lead.tol.dev api.tol.dev app.tol.dev demo.tol.dev
-      to: /var/www/tol/public
+    - name: app1
+      map: app1.dev admin.app1.dev etc.app1.dev
+      to: /var/www/app1/public
 
-    - name: beanstalkc
-      map: beanstalkd
-      to: /var/www/beanstalk/public
-
-    - name: andycrockett
-      map: andy.dev
-      to: /var/www/andycrockett/public
-    
-    - name: hilco
-      map: hilco.dev hilsport.dev
-      to: /var/www/hilco/public
+    - name: app2
+      map: app2.dev admin.app2.dev etc.app2.dev
+      to: /var/www/app2/public
 
 variables:
     - key: APP_ENV
