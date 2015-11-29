@@ -2,7 +2,7 @@
 
 This is a slightly modified version of the official Laravel vagrant box. It allows for simple, on-the-fly hostname management by taking the aliases defined in `Homestead.yaml` and applying them to your local hosts file. No longer do you have to manually edit your hosts file, just change the aliases in `Homestead.yaml` and run `vagrant reload --provision`, that's it!
 
-Official Homestead documentation [is located here](http://laravel.com/docs/homestead?version=4.2).
+Official Homestead documentation [is located here](http://laravel.com/docs/master/homestead).
 
 ## Changes from official version
 
