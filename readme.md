@@ -1,4 +1,8 @@
-# Laravel Homestead + Hostmanager
+# No longer maintained!
+
+One day I'll come back and update this to the latest version of the homestead box (0.4.2 at the time of writing this) but until then just use the [main homestead repo](https://github.com/laravel/homestead) and update your hosts files manually! If you're on Windows I recommend trying out [this great tool](http://mayakron.altervista.org/wikibase/show.php?id=AcrylicHome) for more robust host file control.
+
+## Laravel Homestead + Hostmanager
 
 This is a slightly modified version of the official Laravel vagrant box. It allows for simple, on-the-fly hostname management by taking the aliases defined in `Homestead.yaml` and applying them to your local hosts file. No longer do you have to manually edit your hosts file, just change the aliases in `Homestead.yaml` and run `vagrant reload --provision`, that's it!
 
